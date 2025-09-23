@@ -92,8 +92,8 @@
         <br><br>
         <figcaption class="is-size-7 mt-2">
           Figures and videos from:  
-          <cite>Gordon, Daniel FN, et al. "Human-in-the-loop optimization of exoskeleton assistance via online simulation of metabolic cost." <i>IEEE Transactions on Robotics</i> 38.3 (2022): 1410-1429.</cite><br>
-          <cite>Ding, Ye, et al. "Human-in-the-loop optimization of hip assistance with a soft exosuit during walking." <i>Science Robotics</i> 3.15 (2018): eaar5438.</cite>
+          <cite>[1] Gordon, Daniel FN, et al. "Human-in-the-loop optimization of exoskeleton assistance via online simulation of metabolic cost." <i>IEEE Transactions on Robotics</i> 38.3 (2022): 1410-1429.</cite><br>
+          <cite>[2] Ding, Ye, et al. "Human-in-the-loop optimization of hip assistance with a soft exosuit during walking." <i>Science Robotics</i> 3.15 (2018): eaar5438.</cite>
         </figcaption>
       </figure>
     </div>
@@ -108,16 +108,32 @@
             What is our optimization target?
           </h2>
           <figure class="has-text-centered mt-6">
-            <img src="./static/images/optimize.png" alt="Assistive Torque Formula" style="width: 50%; height: auto;">
+            <img src="./static/images/argmin.png" alt="Assistive Torque Formula" style="width: 50%; height: auto;">
           </figure>
       
-          <p class="mt-4 is-size-5">
-            where y(t) = sin(&theta;<sub>r</sub> &minus; &theta;<sub>l</sub>) is a control signal encoding the relative motions of the two legs,
-            &theta;<sub>r</sub> and &theta;<sub>l</sub> denote the right and left hip joint angles, respectively. 
-            &kappa; and &Delta;t are control parameters, 
-            where the gain &kappa; scales the torque magnitude, while the delay 
-            &Delta;t introduces temporal lag for the output (i.e., delayed-feedback control).
+          <p class="mt-4 is-size-4">
+            Our goal is to find the optimal exoskeleton control parameters (<i>&kappa;</i>, &Delta;t) that minimize metabolic cost under torque assistance <i>&tau;</i>.
           </p>
+          <figure class="has-text-centered mt-6">
+            <img src="./static/images/environment.jpg" alt="Assistive Torque Formula" style="width: 25%; height: auto;">
+          </figure>
+          <figure class="has-text-centered mt-6">
+            <img src="./static/images/control.png" alt="Assistive Torque Formula" style="width: 35%; height: auto;">
+          </figure>
+
+          <p class="mt-4 is-size-4">
+            In our exoskeleton<sup><a href="#lim2019" style="font-size:0.7em;">[3]</a></sup>, torque assistance (&tau;) is modulated by two control parameters: the gain (&kappa;) scales the torque magnitude, while the delay (&Delta;t) introduces temporal lag for the output (i.e., delayed-feedback control). The control signal is given by y(t) = sin(&theta;<sub>r</sub> &minus; &theta;<sub>l</sub>), which encodes the relative motions of the two legs, where &theta;<sub>r</sub> and &theta;<sub>l</sub> denote the right and left hip joint angles, respectively.
+          </p>
+          <div id="lim2019" class="is-size-7" style="margin-top: -1em;">
+            [3] <cite>Lim, Bokman, et al. "Delayed output feedback control for gait assistance and resistance using a robotic exoskeleton." <i>IEEE Robotics and Automation Letters</i> 4.4 (2019): 3521-3528.</cite>
+          </div>
+          <!-- <p class="mt-4 is-size-5"> -->
+            <!-- where y(t) = sin(&theta;<sub>r</sub> &minus; &theta;<sub>l</sub>) is a control signal encoding the relative motions of the two legs, -->
+            <!-- &theta;<sub>r</sub> and &theta;<sub>l</sub> denote the right and left hip joint angles, respectively.  -->
+            <!-- &kappa; and &Delta;t are control parameters,  -->
+            <!-- where the gain &kappa; scales the torque magnitude, while the delay  -->
+            <!-- &Delta;t introduces temporal lag for the output (i.e., delayed-feedback control). -->
+          <!-- </p> -->
         </div>
     </div>
     <br><br>
